@@ -7,5 +7,13 @@
     <string name="password">Password</string>
     <string name="connect">Connect !</string>
     <string name="signup">Sign up !</string>
+    <string name="stay_conected">stay conected</string>
+
+
+    <!-- PREFERENCES   -->
+    <string name="checkboxPref">SharedPreferences</string>
+    <string name="usernamePref">SharedPreferences</string>
+    <string name="passwordPref">SharedPreferences</string>
+
 
 </resources>

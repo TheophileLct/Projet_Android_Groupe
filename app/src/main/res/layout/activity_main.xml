@@ -7,8 +7,8 @@
     android:visibility="visible">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="351dp"
+        android:layout_height="203dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="100dp"
         android:layout_marginRight="30dp"
@@ -23,11 +23,12 @@
             android:text="@string/connect"
             android:textColor="@color/colorPrimaryDark"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="@id/password"
-            app:layout_constraintTop_toBottomOf="@id/password" />
+            app:layout_constraintRight_toRightOf="@id/passwordEditText"
+            app:layout_constraintTop_toBottomOf="@id/passwordEditText"
+            app:layout_constraintVertical_bias="0.2" />
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -61,7 +62,16 @@
             android:textColor="@color/colorPrimaryDark"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password" />
+            app:layout_constraintTop_toBottomOf="@+id/passwordEditText"
+            app:layout_constraintVertical_bias="0.163" />
+
+        <CheckBox
+            android:id="@+id/stay_conected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stay_conected"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
@@ -72,6 +82,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="154dp"
         android:layout_marginBottom="124dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@tools:sample/avatars"
+        android:contentDescription="TODO" />
 
 </RelativeLayout>
