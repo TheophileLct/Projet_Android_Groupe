@@ -3,4 +3,6 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="colorTimerBar">#3C638D</color>
+    <color name="colorBackgroundTimerBar">#A0BBD8</color>
 </resources>
