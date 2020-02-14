@@ -10,8 +10,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.quizz_app.utils.Constants;
+import com.example.quizz_app.utils.PreferencesUtils;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private CheckBox stay_conected;
@@ -19,7 +20,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private EditText passwordEdit;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         stay_conected=(CheckBox)findViewById(R.id.stay_conected);
@@ -29,10 +30,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         findViewById(R.id.loginButton).setOnClickListener(this);
 
-        myPreferences = getPreferences(MODE_PRIVATE);
-        editor=myPreferences.edit();
-
-        checkPreferences();
+        final String login = PreferencesUtils.getLogin();
+        final String password=PreferencesUtils.getPassword();
+        if(!TextUtils.isEmpty(login))
+            loginEdit.setText(login);
+            passwordEdit.setText(password);
     }
 
     @Override
@@ -59,32 +61,24 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     .show();
             return;
         }
-        preferencesUtils.setLogin(login);
+
+        String login = loginEdit.getText().toString();
+        String password=passwordEdit.getText().toString();
+
+        if(stay_conected.isChecked()){
+
+            PreferencesUtils.setLogin(login);
+            PreferencesUtils.setPassword(password);
+
+        }
+
         startActivity(getHomeIntent(login));
-    }
-
-    private void checkPreferences(){
-        EditText usernameEditText = findViewById(R.id.loginEditText);
-        EditText passwordEditText = findViewById(R.id.passwordEditText);
-
-        String checkbox=myPreferences.getString(getString(R.string.checkboxPref),"remember me");
-        String username=myPreferences.getString(getString(R.string.usernamePref),"");
-        String password=myPreferences.getString(getString(R.string.passwordPref),"");
-
-        usernameEditText.setText(username);
-        passwordEditText.setText(password);
-        if(checkbox.equals("True")){
-            stay_conected.setText("True");
-        }
-        else{
-            stay_conected.setText("remember me");
-        }
     }
 
     private Intent getHomeIntent(String userName){
         final Intent homeIntent = new Intent(this, MainActivity.class);
         final Bundle extras = new Bundle();
-        extras.putString(SyncStateContract.Constants.Login.EXTRA_LOGIN, userName);
+        extras.putString(Constants.Login.EXTRA_LOGIN, userName);
         homeIntent.putExtras(extras);
         return homeIntent;
     }
