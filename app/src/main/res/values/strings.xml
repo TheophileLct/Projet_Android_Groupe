@@ -8,6 +8,13 @@
     <string name="connect">Connect !</string>
     <string name="signup">Sign up !</string>
     <string name="stay_conected">stay conected</string>
+    <string name="logo">logo</string>
+
+    <!-- PROFIL PAGE -->
+    <string name="editImageButton">Edit your image</string>
+    <string name="profilText">Profil name</string>
+    <string name="scoreText">Score : .....</string>
+    <string name="logout">Logout</string>
 
 
     <!-- PREFERENCES   -->
