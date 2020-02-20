@@ -11,8 +11,8 @@ import androidx.room.PrimaryKey;
 @Entity
 public class User {
 
-    @PrimaryKey() @NonNull
-    private  String id;
+    @PrimaryKey(autoGenerate = true) @NonNull
+    private  int id;
 
     @ColumnInfo() @NonNull
     private String Username;
@@ -30,7 +30,7 @@ public class User {
     // private Image profilpicture;
 
 
-    public User(@NonNull String id, @NonNull String username, @NonNull String password) {
+    public User(@NonNull int id, @NonNull String username, @NonNull String password) {
         this.id = id;
         Username = username;
         Password = password;
@@ -75,11 +75,11 @@ public class User {
     }
 
     @NonNull
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(@NonNull String id) {
+    public void setId(@NonNull int id) {
         this.id = id;
     }
 }

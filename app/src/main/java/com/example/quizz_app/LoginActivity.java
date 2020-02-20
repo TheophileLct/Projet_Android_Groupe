@@ -71,12 +71,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         String login = loginEdit.getText().toString();
         String password=passwordEdit.getText().toString();
 
-        User compareUser=dao.getUserByUsername(login).get(0);
-        if(compareUser!=null){
-            Toast.makeText(this, "Username already use", Toast.LENGTH_SHORT)
+        /*/User compareUser=dao.getUserByUsername(login).get(0);
+        if((compareUser==null)||(compareUser.getPassword()!=password)){
+            Toast.makeText(this, "Username or password false ", Toast.LENGTH_SHORT)
                     .show();
             return;
-        }
+        }/*/
 
         if(stay_conected.isChecked()){
 

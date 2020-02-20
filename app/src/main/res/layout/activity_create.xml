@@ -38,7 +38,8 @@
         android:inputType="textPersonName"
         android:text="@string/profilText"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chooseProfilImage" />
+        app:layout_constraintTop_toBottomOf="@+id/chooseProfilImage"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/passwordSet"
@@ -53,7 +54,7 @@
         app:layout_constraintTop_toBottomOf="@+id/profilName" />
 
     <Button
-        android:id="@+id/continue"
+        android:id="@+id/ButtonContinue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
