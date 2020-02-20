@@ -11,20 +11,26 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.quizz_app.Dao.UserDao;
+import com.example.quizz_app.entities.User;
 import com.example.quizz_app.utils.Constants;
 import com.example.quizz_app.utils.PreferencesUtils;
+
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private CheckBox stay_conected;
     private EditText loginEdit;
     private EditText passwordEdit;
 
+    private UserDao dao;
+
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        stay_conected=(CheckBox)findViewById(R.id.stay_conected);
 
+        stay_conected=(CheckBox)findViewById(R.id.stay_conected);
         loginEdit = (EditText) findViewById(R.id.loginEditText);
         passwordEdit = (EditText) findViewById(R.id.passwordEditText);
 
@@ -34,26 +40,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         final String password=PreferencesUtils.getPassword();
         if(!TextUtils.isEmpty(login))
             loginEdit.setText(login);
-            passwordEdit.setText(password);
+        passwordEdit.setText(password);
     }
 
     @Override
     public void onClick(View v) {
-
-
-        if (TextUtils.isEmpty(loginEdit.getText()) && !(TextUtils.isEmpty(passwordEdit.getText())))
-        {
-            Toast.makeText(this, "EmptyLogin", Toast.LENGTH_SHORT)
-                    .show();
-            return;
-        }
-
-        if (TextUtils.isEmpty(passwordEdit.getText()) && !(TextUtils.isEmpty(loginEdit.getText())))
-            {
-                Toast.makeText(this, "EmptyPassword", Toast.LENGTH_SHORT)
-                        .show();
-                return;
-            }
 
         if (TextUtils.isEmpty(passwordEdit.getText()) && (TextUtils.isEmpty(loginEdit.getText())))
         {
@@ -61,14 +52,43 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     .show();
             return;
         }
+        else {
+
+            if (TextUtils.isEmpty(loginEdit.getText())) {
+                Toast.makeText(this, "EmptyLogin", Toast.LENGTH_SHORT)
+                        .show();
+                return;
+            }
+
+            if (TextUtils.isEmpty(passwordEdit.getText())) {
+                Toast.makeText(this, "EmptyPassword", Toast.LENGTH_SHORT)
+                        .show();
+                return;
+            }
+
+        }
 
         String login = loginEdit.getText().toString();
         String password=passwordEdit.getText().toString();
+
+        User compareUser=dao.getUserByUsername(login).get(0);
+        if(compareUser!=null){
+            Toast.makeText(this, "Username already use", Toast.LENGTH_SHORT)
+                    .show();
+            return;
+        }
 
         if(stay_conected.isChecked()){
 
             PreferencesUtils.setLogin(login);
             PreferencesUtils.setPassword(password);
+
+        }
+
+        if(!(stay_conected.isChecked())){
+
+            PreferencesUtils.setLogin("");
+            PreferencesUtils.setPassword("");
 
         }
 
@@ -82,6 +102,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         homeIntent.putExtras(extras);
         return homeIntent;
     }
-
 }
+
+
+
 
