@@ -112,8 +112,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             PreferencesUtils.setPassword("");
 
         }
-
-        startActivity(new Intent( LoginActivity.this,MainActivity.class));
+       Intent intent= new Intent ( LoginActivity.this,MainActivity.class);
+        Bundle bundle=new Bundle();
+        bundle.putString("username",login);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 
     private Intent getHomeIntent(String userName){
