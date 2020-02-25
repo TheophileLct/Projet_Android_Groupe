@@ -8,78 +8,81 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(tableName = "AppUser")
 public class User {
 
-    @PrimaryKey(autoGenerate = true) @NonNull
+    public User(  String username,  String password) {
+        this.username = username;
+        this.password = password;
+        this.score = 0;
+        this.nbquiz =0;
+    }
+
+    @PrimaryKey(autoGenerate = true)
     private  int id;
 
-    @ColumnInfo() @NonNull
-    private String Username;
+    @ColumnInfo(name="username")
+    private String username;
 
-    @ColumnInfo() @NonNull
-    private String Password;
+    @ColumnInfo(name="password")
+    private String password;
 
-    @ColumnInfo() @NonNull
-    private int Score;
+    @ColumnInfo(name="score")
+    private int score;
 
-    @ColumnInfo() @NonNull
+    @ColumnInfo(name="nbquizz")
     private int nbquiz;
 
     //@ColumnInfo
     // private Image profilpicture;
 
 
-    public User(@NonNull int id, @NonNull String username, @NonNull String password) {
-        this.id = id;
-        Username = username;
-        Password = password;
-        Score = 0;
-        this.nbquiz =0;
-    }
 
-    @NonNull
+
+
     public int getNbquiz() {
         return nbquiz;
     }
 
-    public void setNbquiz(@NonNull int nbquiz) {
+    public void setNbquiz( int nbquiz) {
         this.nbquiz = nbquiz;
     }
 
-    @NonNull
+
     public int getScore() {
-        return Score;
+        return score;
     }
 
-    public void setScore(@NonNull int score) {
-        Score = score;
+    public void setScore( int score) {
+        score = score;
     }
 
-    @NonNull
+
     public String getPassword() {
-        return Password;
+        return password;
     }
 
-    public void setPassword(@NonNull String password) {
-        Password = password;
+    public void setPassword( String password) {
+        password = password;
     }
 
-    @NonNull
+
     public String getUsername() {
-        return Username;
+        return username;
     }
 
-    public void setUsername(@NonNull String username) {
-        Username = username;
+    public void setUsername( String username) {
+        username = username;
     }
 
-    @NonNull
+
     public int getId() {
         return id;
     }
 
-    public void setId(@NonNull int id) {
-        this.id = id;
+    public void setId( int id) {
+        id = id;
     }
+
+
 }
