@@ -120,7 +120,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private Intent getHomeIntent(String userName){
-        final Intent homeIntent = new Intent(this, MainActivity.class);
+        final Intent homeIntent = new Intent(this, MenuPrincipal.class);
         final Bundle extras = new Bundle();
         extras.putString(Constants.Login.EXTRA_LOGIN, userName);
         homeIntent.putExtras(extras);

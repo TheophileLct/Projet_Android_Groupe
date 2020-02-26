@@ -27,5 +27,10 @@
     <string name="usernamePref">SharedPreferences</string>
     <string name="passwordPref">SharedPreferences</string>
 
+    <!-- Menu Déroulant   -->
+    <string name="menu_logout_button">log out</string>
+    <string name="menu_profil_button">profil</string>
+    <string name="menu_return_button">home</string>
+
 
 </resources>
