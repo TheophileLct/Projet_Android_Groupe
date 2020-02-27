@@ -92,6 +92,23 @@
           "isTrue": false
         }],
         "timer": 8.0
+      },{
+        "number": 3,
+        "title": "Quel groupe de rock joue lors de la fête du village du troisième opus",
+        "answers": [{
+          "description": "ZZ top",
+          "isTrue": true
+        }, {
+          "description": "Iggy Pop",
+          "isTrue": false
+        }, {
+          "description": "Lynyrd Skynyrd",
+          "isTrue": false
+        }, {
+          "description": "Chuck Berry",
+          "isTrue": false
+        }],
+        "timer": 10.0
       }]
     }]
 }
