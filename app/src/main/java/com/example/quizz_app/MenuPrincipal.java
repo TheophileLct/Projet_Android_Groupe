@@ -18,7 +18,7 @@ import com.example.quizz_app.utils.QuestionsService;
 public class MenuPrincipal extends AppCompatActivity {
 
     private static Context sContext;
-    private String username;
+    public String username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +47,7 @@ public class MenuPrincipal extends AppCompatActivity {
 
         final RecyclerView rv = (RecyclerView) findViewById(R.id.quizList);
         rv.setLayoutManager(new LinearLayoutManager(this));
-        rv.setAdapter(new ListQuizAdapter(this));
+        rv.setAdapter(new ListQuizAdapter(this,this.username));
     }
 
 

@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.example.quizz_app.MenuPrincipal;
 import com.example.quizz_app.QuestionActivity;
 import com.example.quizz_app.R;
 import com.example.quizz_app.object.Quiz;
@@ -29,9 +30,11 @@ public class ListQuizAdapter extends RecyclerView.Adapter<ListQuizAdapter.MyView
     //ArrayList<Quiz> questions =factory.createquestion();
     List<String> themeName = new ArrayList<>();
     Context context;
+    private String username;
 
-    public ListQuizAdapter(Context context){
+    public ListQuizAdapter(Context context,String username){
         this.context=context;
+        this.username = username;
         themeName = QuestionsService.getNameOfQuestionLists();
     }
 
@@ -44,7 +47,7 @@ public class ListQuizAdapter extends RecyclerView.Adapter<ListQuizAdapter.MyView
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.quiz_list_item, parent, false);
-        return new MyViewHolder(view,this.context);
+        return new MyViewHolder(view,this.context,this.username);
     }
 
     @Override
@@ -58,11 +61,13 @@ public class ListQuizAdapter extends RecyclerView.Adapter<ListQuizAdapter.MyView
         private final TextView nbquestion;
         private final TextView difficulte;
         private final ImageView symbole;
+        private String username;
         private final Context context;
 
-        public MyViewHolder(final View itemView,Context context) {
+        public MyViewHolder(final View itemView,Context context,String username) {
             super(itemView);
             this.context=context;
+            this.username=username;
 
             name = ((TextView) itemView.findViewById(R.id.quiz_name));
             nbquestion = ((TextView) itemView.findViewById(R.id.nb_question));
@@ -81,6 +86,7 @@ public class ListQuizAdapter extends RecyclerView.Adapter<ListQuizAdapter.MyView
             final Intent homeIntent = new Intent(this.context, QuestionActivity.class);
             final Bundle extras = new Bundle();
             extras.putString("Quizname", name.getText().toString());
+            extras.putString("username",this.username);
             homeIntent.putExtras(extras);
             context.startActivity(homeIntent);
         }

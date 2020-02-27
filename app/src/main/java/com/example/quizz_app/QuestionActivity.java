@@ -21,7 +21,7 @@ import java.util.List;
 public class QuestionActivity extends AppCompatActivity implements View.OnClickListener{
 
     private String quizname;
-
+    private String username;
     private TextView SubjectText;
     private TextView QuestionWidget;
     private List<Button> AnswerButtons = new ArrayList<>();
@@ -41,6 +41,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
             if(null!= extras )
             {
                 this.quizname = extras.getString("Quizname");
+                this.username = extras.getString("username");
                 getSupportActionBar().setSubtitle(this.quizname);
                 if(quizname == null)
                     Log.e(QuestionActivity.class.getName(), "No theme name was given in the bundle when QuestionActivity is created");
@@ -96,6 +97,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
                 //END OF QUIZ WITH WIN SCREEN!!!!
                 Intent intent= new Intent ( QuestionActivity.this,MenuPrincipal.class);
                 Bundle bundle=new Bundle();
+                bundle.putString("username",this.username);
                 intent.putExtras(bundle);
                 startActivity(intent);
                 QuestionsService.resetQuiz();
@@ -106,6 +108,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
             //Bad answer!!! Shame delivery and END OF SCREEN WITH LOOSE SCREEN!!!!
             Intent intent= new Intent ( QuestionActivity.this,MenuPrincipal.class);
             Bundle bundle=new Bundle();
+            bundle.putString("username",this.username);
             intent.putExtras(bundle);
             startActivity(intent);
             QuestionsService.resetQuiz();
@@ -146,8 +149,12 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.menu_deroulant_quiz_return_home){
-            finish();
-            return true;
+            Intent intent= new Intent ( QuestionActivity.this,MenuPrincipal.class);
+            Bundle bundle=new Bundle();
+            bundle.putString("username",this.username);
+            intent.putExtras(bundle);
+            startActivity(intent);
+            QuestionsService.resetQuiz();
         }
 
         return super.onOptionsItemSelected(item);
