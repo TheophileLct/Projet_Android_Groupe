@@ -53,12 +53,7 @@ public class MenuPrincipal extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //action de logout
         if (id == R.id.menu_deroulant_return_home){
             finish();
             return true;

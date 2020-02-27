@@ -7,18 +7,27 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
+import com.example.quizz_app.Dao.UserDao;
+import com.example.quizz_app.appDatabse.AppDatabase;
+import com.example.quizz_app.entities.User;
 import com.example.quizz_app.utils.Constants;
 
 public class ProfilActivity extends AppCompatActivity {
 
     private String username;
+    private AppDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profil);
+        database = Room.databaseBuilder(this, AppDatabase.class, "app_user")
+                .allowMainThreadQueries()
+                .build();
         TextView namefield = findViewById(R.id.profil_name);
+        TextView scorefield = findViewById(R.id.profil_score);
         final Intent intent = getIntent();
         if(null!= intent){
             final Bundle extras = intent.getExtras();
@@ -27,7 +36,8 @@ public class ProfilActivity extends AppCompatActivity {
                 final String  name = extras.getString("username");
                 this.username=name;
                 namefield.setText(name);
-
+                User user = database.userDao().getUserByUsername(username).get(0);
+                //scorefield.setText(user.getScore());
             }
         }
 
@@ -37,24 +47,18 @@ public class ProfilActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menuprofil, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
-        //action de logout
         if (id == R.id.menu_deroulant_profil_return_home){
             finish();
         }
-
-
         return super.onOptionsItemSelected(item);
     }
 }
