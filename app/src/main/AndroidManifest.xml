@@ -20,6 +20,7 @@
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".MenuPrincipal"></activity>
         <activity android:name=".CreateAccount"></activity>
+        <activity android:name=".ProfilActivity"></activity>
     </application>
 
 </manifest>

@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quizz_app.adapter.ListQuizAdapter;
-import com.example.quizz_app.utils.Constants;
 
 public class MenuPrincipal extends AppCompatActivity {
 
@@ -29,7 +28,7 @@ public class MenuPrincipal extends AppCompatActivity {
             final Bundle extras = intent.getExtras();
             if(null!= extras )
             {
-                final String  name = extras.getString(Constants.Login.EXTRA_LOGIN);
+                final String  name = extras.getString("username");
                 this.username=name;
                 namefield.setText(name);
 
@@ -66,9 +65,9 @@ public class MenuPrincipal extends AppCompatActivity {
         }
 
         if (id== R.id.menu_deroulant_profil){
-            final Intent homeIntent = new Intent(this, MainActivity.class);
+            final Intent homeIntent = new Intent(this, ProfilActivity.class);
             final Bundle extras = new Bundle();
-            extras.putString(Constants.Login.EXTRA_LOGIN,this.username);
+            extras.putString("username",this.username);
             homeIntent.putExtras(extras);
             startActivity(homeIntent);
         }

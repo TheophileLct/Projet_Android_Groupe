@@ -1,44 +1,44 @@
 package com.example.quizz_app;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
-public class QuestionActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
 
-    protected CountDownTimer timer;
-    private String quizname;
+import com.example.quizz_app.utils.Constants;
+
+public class ProfilActivity extends AppCompatActivity {
+
+    private String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_question);
+        setContentView(R.layout.activity_profil);
+        TextView namefield = findViewById(R.id.profil_name);
         final Intent intent = getIntent();
         if(null!= intent){
             final Bundle extras = intent.getExtras();
             if(null!= extras )
             {
-                this.quizname = extras.getString("Quizname");
-                getSupportActionBar().setSubtitle(this.quizname);
+                final String  name = extras.getString("username");
+                this.username=name;
+                namefield.setText(name);
 
             }
         }
 
-        //getFragmentManager().beginTransaction().add(R.id.frameTest, new QuestionFragment()).commit();
     }
-
-
 
     //méthodes pour le menu déroulant
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menuquiz, menu);
+        getMenuInflater().inflate(R.menu.menuprofil, menu);
         return true;
     }
 
@@ -50,10 +50,10 @@ public class QuestionActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //action de logout
-        if (id == R.id.menu_deroulant_quiz_return_home){
+        if (id == R.id.menu_deroulant_profil_return_home){
             finish();
-            return true;
         }
+
 
         return super.onOptionsItemSelected(item);
     }

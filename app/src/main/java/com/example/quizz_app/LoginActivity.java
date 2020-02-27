@@ -118,14 +118,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         intent.putExtras(bundle);
         startActivity(intent);
     }
-
-    private Intent getHomeIntent(String userName){
-        final Intent homeIntent = new Intent(this, MenuPrincipal.class);
-        final Bundle extras = new Bundle();
-        extras.putString(Constants.Login.EXTRA_LOGIN, userName);
-        homeIntent.putExtras(extras);
-        return homeIntent;
-    }
 }
 
 

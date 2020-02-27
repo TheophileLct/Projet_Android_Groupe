@@ -78,7 +78,7 @@ public class ListQuizAdapter extends RecyclerView.Adapter<ListQuizAdapter.MyView
         private void changeView(){
             final Intent homeIntent = new Intent(this.context, QuestionActivity.class);
             final Bundle extras = new Bundle();
-            extras.putString("KeyQuiz",currentQuiz.getName());
+            extras.putString("Quizname",currentQuiz.getName());
             homeIntent.putExtras(extras);
             context.startActivity(homeIntent);
         }

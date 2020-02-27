@@ -17,8 +17,8 @@
 
     <!-- PROFIL PAGE -->
     <string name="editImageButton">Edit your image</string>
-    <string name="profilText">Profil name</string>
-    <string name="scoreText">Score : .....</string>
+    <string name="profilText">Profil name : </string>
+    <string name="scoreText">Score : </string>
     <string name="logout">Logout</string>
 
 

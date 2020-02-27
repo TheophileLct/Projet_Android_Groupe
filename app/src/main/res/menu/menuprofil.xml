@@ -3,6 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/menu_deroulant_quiz_return_home"
+        android:id="@+id/menu_deroulant_profil_return_home"
         android:title="@string/menu_return_button" />
 </menu>
