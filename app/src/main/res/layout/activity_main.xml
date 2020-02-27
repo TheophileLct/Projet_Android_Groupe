@@ -12,8 +12,10 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="100dp"
         android:layout_marginRight="30dp"
-        android:background="@android:color/holo_orange_light"
-        android:padding="10dp">
+        android:background="@color/colorPrimaryConst"
+        android:padding="10dp"
+        >
+
 
 
         <Button
@@ -21,7 +23,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/connect"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/textColor"
+            android:elevation="10dp"
+            android:translationZ="10dp"
+            android:stateListAnimator="@null"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="@id/passwordEditText"
             app:layout_constraintTop_toBottomOf="@id/passwordEditText"
@@ -31,6 +36,7 @@
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/password"
             android:inputType="textPassword"
@@ -58,8 +64,12 @@
             android:id="@+id/signUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:shadowColor="@color/colorBackgroundTimerBar"
             android:text="@string/signup"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/textColor"
+            android:elevation="10dp"
+            android:translationZ="10dp"
+            android:stateListAnimator="@null"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/passwordEditText"
@@ -69,20 +79,24 @@
             android:id="@+id/stay_conected"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/stay_conected"
+            android:text="@string/stay_connected"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="336dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="154dp"
-        android:layout_marginBottom="124dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="346dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="20dp"
         android:contentDescription="@string/logo"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:srcCompat="@drawable/quitimepng" />
 
 </RelativeLayout>

@@ -1,8 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
-    <color name="colorTimerBar">#3C638D</color>
+    <!-- Thème Bleu vedette-->
+    <color name="colorPrimaryConst">#039BE5</color>
+    <color name="colorPrimaryDark">#0039cb</color>
+    <color name="colorPrimary">#2962ff</color>
+    <color name="colorAccent">#ff4081</color>
+
+    <!-- Thème Rose -->
+    <color name="colorPrimaryDarkk">#AD1457</color>
+    <color name="colorPrimaryj">#E91E63</color>
+    <color name="colorPrimaryConstg">#FF4081</color>
+    <color name="colorAccentd">#40C4FF</color>
+
+    <!-- Thème Orange -->
+    <color name="colorPrimaryConstF">#FF6D00</color>
+    <color name="colorPrimaryDarkF">#BF360C</color>
+    <color name="colorPrimaryD">#E65100</color>
+    <color name="colorAccentD">#2979FF</color>
+
+    <!-- Boutons fragment_question -->
+    <color name="B1">#0091ea</color>
+    <color name="B2">#00b8d4</color>
+    <color name="B3">#00bfa5</color>
+    <color name="B4">#5efc82</color>
+
+    <!-- Universels -->
+    <color name="colorTimerBar">#ff4081</color>
     <color name="colorBackgroundTimerBar">#A0BBD8</color>
+    <color name="textColor">#FFFFFF</color>
+    <color name="barrehautDany">#40C4FF</color>
 </resources>
