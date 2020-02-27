@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class QuestionCreate extends Activity {
-
+/*
     List<Pair<String,Boolean>> answers = Arrays.asList(new Pair<String,Boolean>("yep",true));
     Pair<String,Boolean> answer = null;
     ArrayList<Question>questions=new ArrayList<>();
@@ -53,5 +53,5 @@ public class QuestionCreate extends Activity {
 
     public Context getContext(){
         return this.getContext();
-    }
+    }*/
 }

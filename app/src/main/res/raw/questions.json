@@ -1,0 +1,97 @@
+{
+  "themes": [{
+    "name": "Video game's costume",
+    "difficulty": 6,
+    "questions": [{
+      "number": 0,
+      "title": "What's the colour of Mario's hat in Super Mario Bros 2?",
+      "answers": [{
+        "description": "Blue",
+        "isTrue": false
+      }, {
+        "description": "White",
+        "isTrue": false
+      }, {
+        "description": "Red",
+        "isTrue": true
+      }, {
+        "description": "Black",
+        "isTrue": false
+      }],
+      "timer": 10.0
+    }, {
+      "number": 1,
+      "title": "Has Donkey Kong a tie in the first game he appears?",
+      "answers": [{
+        "description": "Yes",
+        "isTrue": false
+      }, {
+        "description": "No",
+        "isTrue": true
+      }, {
+        "description": "Maybe",
+        "isTrue": false
+      }, {
+        "description": "I dont know",
+        "isTrue": false
+      }],
+      "timer": 12.0
+    }]
+  },
+    {
+      "name": "Retour Vers Le Futur",
+      "difficulty": 15,
+      "questions": [{
+        "number": 0,
+        "title": "Comment s’appelle le chien de Doc en 1985 ?",
+        "answers": [{
+          "description": "Milou",
+          "isTrue": false
+        }, {
+          "description": "Snoopy",
+          "isTrue": false
+        }, {
+          "description": "Newton",
+          "isTrue": false
+        }, {
+          "description": "Einstein",
+          "isTrue": true
+        }],
+        "timer": 8.0
+      }, {
+        "number": 1,
+        "title": "Quel est le nom de la ville dans Retour vers le futur ?",
+        "answers": [{
+          "description": "Hill Valley",
+          "isTrue": true
+        }, {
+          "description": "New York",
+          "isTrue": false
+        }, {
+          "description": "Lille",
+          "isTrue": false
+        }, {
+          "description": "Salleyville",
+          "isTrue": false
+        }],
+        "timer": 8.0
+      }, {
+        "number": 2,
+        "title": "En quelle année commence le début de Retour vers le futur 1 ?",
+        "answers": [{
+          "description": "1955",
+          "isTrue": false
+        }, {
+          "description": "2015",
+          "isTrue": false
+        }, {
+          "description": "1985",
+          "isTrue": true
+        }, {
+          "description": "-1955",
+          "isTrue": false
+        }],
+        "timer": 8.0
+      }]
+    }]
+}

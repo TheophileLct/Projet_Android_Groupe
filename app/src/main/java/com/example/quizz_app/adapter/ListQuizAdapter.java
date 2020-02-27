@@ -17,23 +17,27 @@ import com.example.quizz_app.QuestionActivity;
 import com.example.quizz_app.R;
 import com.example.quizz_app.object.Quiz;
 import com.example.quizz_app.utils.QuestionCreate;
+import com.example.quizz_app.utils.QuestionsService;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ListQuizAdapter extends RecyclerView.Adapter<ListQuizAdapter.MyViewHolder> {
 
 
-    QuestionCreate factory = new QuestionCreate();
-    ArrayList<Quiz> questions =factory.createquestion();
+    //QuestionCreate factory = new QuestionCreate();
+    //ArrayList<Quiz> questions =factory.createquestion();
+    List<String> themeName = new ArrayList<>();
     Context context;
 
     public ListQuizAdapter(Context context){
         this.context=context;
+        themeName = QuestionsService.getNameOfQuestionLists();
     }
 
     @Override
     public int getItemCount() {
-        return questions.size();
+        return themeName.size();
     }
 
     @Override
@@ -45,7 +49,7 @@ public class ListQuizAdapter extends RecyclerView.Adapter<ListQuizAdapter.MyView
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.display(questions.get(position));
+        holder.display(themeName.get(position));
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -55,8 +59,6 @@ public class ListQuizAdapter extends RecyclerView.Adapter<ListQuizAdapter.MyView
         private final TextView difficulte;
         private final ImageView symbole;
         private final Context context;
-
-        private Quiz currentQuiz;
 
         public MyViewHolder(final View itemView,Context context) {
             super(itemView);
@@ -78,11 +80,19 @@ public class ListQuizAdapter extends RecyclerView.Adapter<ListQuizAdapter.MyView
         private void changeView(){
             final Intent homeIntent = new Intent(this.context, QuestionActivity.class);
             final Bundle extras = new Bundle();
-            extras.putString("Quizname",currentQuiz.getName());
+            extras.putString("Quizname", name.getText().toString());
             homeIntent.putExtras(extras);
             context.startActivity(homeIntent);
         }
 
+        public void display(String f_name) {
+            name.setText(f_name);
+            nbquestion.setText(Integer.toString(QuestionsService.getNumberOfQuestionsInList(f_name)));
+            difficulte.setText(Integer.toString(QuestionsService.getListDifficulty(f_name)));
+            Drawable place = symbole.getContext().getResources().getDrawable(R.drawable.quiz);
+            symbole.setImageDrawable(place);
+        }
+        /*
         public void display(Quiz quiz) {
             currentQuiz=quiz;
             name.setText(quiz.getName());
@@ -90,7 +100,7 @@ public class ListQuizAdapter extends RecyclerView.Adapter<ListQuizAdapter.MyView
             difficulte.setText(Integer.toString(quiz.getDifficulte()));
             Drawable place = symbole.getContext().getResources().getDrawable(R.drawable.quiz);
             symbole.setImageDrawable(place);
-        }
+        }*/
 
 
     }

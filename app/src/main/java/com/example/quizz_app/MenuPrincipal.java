@@ -3,6 +3,7 @@ package com.example.quizz_app;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quizz_app.adapter.ListQuizAdapter;
+import com.example.quizz_app.utils.QuestionsService;
 
 public class MenuPrincipal extends AppCompatActivity {
 
@@ -33,6 +35,14 @@ public class MenuPrincipal extends AppCompatActivity {
                 namefield.setText(name);
 
             }
+        }
+
+        if(!QuestionsService.isLoaded())
+        {
+            QuestionsService.loadListQuestions(this);
+            if(!QuestionsService.isLoaded()) {
+                Log.e(QuestionsService.class.getName(), "The JSON is a fucking disaster!!!!!!!!!!!!!");
+                return; }
         }
 
         final RecyclerView rv = (RecyclerView) findViewById(R.id.quizList);
