@@ -95,9 +95,11 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
             }
             else {
                 //END OF QUIZ WITH WIN SCREEN!!!!
-                Intent intent= new Intent ( QuestionActivity.this,MenuPrincipal.class);
+                Intent intent= new Intent ( QuestionActivity.this, ResultsActivity.class);
                 Bundle bundle=new Bundle();
                 bundle.putString("username",this.username);
+                bundle.putBoolean("result",true);
+                bundle.putString("quizname",this.quizname);
                 intent.putExtras(bundle);
                 startActivity(intent);
                 QuestionsService.resetQuiz();
@@ -106,9 +108,11 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
         else
         {
             //Bad answer!!! Shame delivery and END OF SCREEN WITH LOOSE SCREEN!!!!
-            Intent intent= new Intent ( QuestionActivity.this,MenuPrincipal.class);
+            Intent intent= new Intent ( QuestionActivity.this,ResultsActivity.class);
             Bundle bundle=new Bundle();
             bundle.putString("username",this.username);
+            bundle.putBoolean("result",false);
+            bundle.putString("quizname",this.quizname);
             intent.putExtras(bundle);
             startActivity(intent);
             QuestionsService.resetQuiz();
