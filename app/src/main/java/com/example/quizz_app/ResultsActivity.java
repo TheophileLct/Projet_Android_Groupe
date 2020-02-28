@@ -3,6 +3,7 @@ package com.example.quizz_app;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +27,7 @@ public class ResultsActivity extends AppCompatActivity implements View.OnClickLi
         TextView scorefield = findViewById(R.id.score_final);
         TextView phraseresultfield = findViewById(R.id.result_result);
         TextView quiznamefield = findViewById(R.id.result_quizname);
+        ImageView image = findViewById(R.id.result_image);
 
         final Intent intent = getIntent();
         if (null != intent) {
@@ -40,11 +42,13 @@ public class ResultsActivity extends AppCompatActivity implements View.OnClickLi
                     resultfield.setText("Félicitations ");
                     phraseresultfield.setText("Tu as atteint le bout du quiz : ");
                     scorefield.setText("20");
+                    image.setImageDrawable(image.getContext().getResources().getDrawable(R.drawable.felicitation));
                 }
                 else{
                     resultfield.setText("Dommage... ");
                     phraseresultfield.setText("Tu n'as pas réussi à finir le quiz : ");
                     scorefield.setText("0");
+                    image.setImageDrawable(image.getContext().getResources().getDrawable(R.drawable.perdu));
                 }
             }
         }
