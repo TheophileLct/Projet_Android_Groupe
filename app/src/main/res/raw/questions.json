@@ -37,6 +37,180 @@
       }],
       "timer": 12.0
     }]
+  },{
+    "name": "marvel",
+    "difficulty": 18,
+    "questions": [{
+      "number": 0,
+      "title": "Dans quel film apparaît pour la première fois le gant de l'infini ?",
+      "answers": [{
+        "description": "Les gardiens de la galaxie",
+        "isTrue": false
+      }, {
+        "description": "Thor 1",
+        "isTrue": true
+      }, {
+        "description": "Avengers",
+        "isTrue": false
+      }, {
+        "description": "Avengers: infinity war",
+        "isTrue": false
+      }],
+      "timer": 10.0
+    }, {
+      "number": 1,
+      "title": "Quel est la première super-héroine à donner son nom au film où elle apparaît ?",
+      "answers": [{
+        "description": "La guêpe",
+        "isTrue": true
+      }, {
+        "description": "Captain Marvel",
+        "isTrue": false
+      }, {
+        "description": "Black Widow",
+        "isTrue": false
+      }, {
+        "description": "Scarlet Witch",
+        "isTrue": false
+      }],
+      "timer": 12.0
+    },{
+      "number": 2,
+      "title": "Quel super-vilain est teasé dans la scène post générique des gardiens de la galaxie 2 ?",
+      "answers": [{
+        "description": "Thanos",
+        "isTrue": false
+      }, {
+        "description": "Le conseil suprême",
+        "isTrue": false
+      }, {
+        "description": "Adam Warlock",
+        "isTrue": true
+      }, {
+        "description": "Nova",
+        "isTrue": false
+      }],
+      "timer": 12.0
+    },{
+      "number": 3,
+      "title": "Comment s'appelle la deuxième IA utilisé par Tony Stark ?",
+      "answers": [{
+        "description": "Ultron",
+        "isTrue": false
+      }, {
+        "description": "Jocasta",
+        "isTrue": false
+      }, {
+        "description": "Friday",
+        "isTrue": true
+      }, {
+        "description": "Vision",
+        "isTrue": false
+      }],
+      "timer": 12.0
+    },{
+      "number": 4,
+      "title": "Quel gardien de la galaxie peut se rendre quasi invisible ?",
+      "answers": [{
+        "description": "Starlord",
+        "isTrue": false
+      }, {
+        "description": "Drax",
+        "isTrue": true
+      }, {
+        "description": "Groot",
+        "isTrue": false
+      }, {
+        "description": "Gamora",
+        "isTrue": false
+      }],
+      "timer": 12.0
+    },{
+      "number": 5,
+      "title": "Combien de films affiliés au MCU sont sortis à ce jour ?",
+      "answers": [{
+        "description": "23",
+        "isTrue": true
+      }, {
+        "description": "21",
+        "isTrue": false
+      }, {
+        "description": "18",
+        "isTrue": false
+      }, {
+        "description": "Je ne l'ai pas tous vu (honte à toi)",
+        "isTrue": false
+      }],
+      "timer": 12.0
+    },{
+      "number": 6,
+      "title": "Combien de héros apparaissent dans avengers endgame ?",
+      "answers": [{
+        "description": "36",
+        "isTrue": false
+      }, {
+        "description": "27",
+        "isTrue": false
+      }, {
+        "description": "55",
+        "isTrue": false
+      }, {
+        "description": "47",
+        "isTrue": true
+      }],
+      "timer": 12.0
+    },{
+      "number": 7,
+      "title": "Quel vilain vit à travers un réseau informatique ?",
+      "answers": [{
+        "description": "Crane Rouge",
+        "isTrue": false
+      }, {
+        "description": "Arnim Zola",
+        "isTrue": true
+      }, {
+        "description": "Whiplash",
+        "isTrue": false
+      }, {
+        "description": "Le Baron Zemo",
+        "isTrue": false
+      }],
+      "timer": 12.0
+    },{
+      "number": 8,
+      "title": "Quel personnage pourrait prouver l'existence d'un multivers ?",
+      "answers": [{
+        "description": "Spiderman",
+        "isTrue": false
+      }, {
+        "description": "Mysterio",
+        "isTrue": false
+      }, {
+        "description": "Nick Fury",
+        "isTrue": false
+      }, {
+        "description": "J.Jonah.Jameson",
+        "isTrue": true
+      }],
+      "timer": 12.0
+    },{
+      "number": 9,
+      "title": "Combien de futur a vu Docteur Strange ?",
+      "answers": [{
+        "description": "13.981.013",
+        "isTrue": false
+      }, {
+        "description": "14.000.605",
+        "isTrue": true
+      }, {
+        "description": "14.235.156",
+        "isTrue": false
+      }, {
+        "description": "beaucoup trop",
+        "isTrue": false
+      }],
+      "timer": 12.0
+    }]
   },
     {
       "name": "Retour Vers Le Futur",
@@ -106,6 +280,58 @@
           "isTrue": false
         }, {
           "description": "Chuck Berry",
+          "isTrue": false
+        }],
+        "timer": 10.0
+      },{
+        "number": 4,
+        "title": "Comment s'appelle les enfants de Doc ?",
+        "answers": [{
+          "description": "Victor et Hugo",
+          "isTrue": false
+        }, {
+          "description": "Marty et Biff",
+          "isTrue": false
+        }, {
+          "description": "Jules et Verne",
+          "isTrue": true
+        },
+          {
+            "description": "Isaac et Nicolas",
+            "isTrue": false
+          }],
+          "timer": 10.0
+        },{
+          "number": 5,
+          "title": "De quel acteur Marty prend-t-il le nom dans le troisième opus ?",
+          "answers": [{
+            "description": "Steve McQueen",
+            "isTrue": false
+          }, {
+            "description": "Buffalo Bill",
+            "isTrue": false
+          }, {
+            "description": "John Wayne",
+            "isTrue": false
+          }, {
+            "description": "Clint Eastwood",
+            "isTrue": true
+          }],
+        "timer": 10.0
+      },{
+        "number": 5,
+        "title": "Quelle vitesse doit atteindre la delorean pour voyager dans le temps ?",
+        "answers": [{
+          "description": "88 miles à l'heure",
+          "isTrue": true
+        }, {
+          "description": "76 miles à l'heure",
+          "isTrue": false
+        }, {
+          "description": "92 miles à l'heure",
+          "isTrue": false
+        }, {
+          "description": "moi je compte en kilomètre par heure",
           "isTrue": false
         }],
         "timer": 10.0

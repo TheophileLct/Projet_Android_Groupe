@@ -37,7 +37,7 @@ public class ProfilActivity extends AppCompatActivity {
                 this.username=name;
                 namefield.setText(name);
                 User user = database.userDao().getUserByUsername(username).get(0);
-                //scorefield.setText(user.getScore());
+                scorefield.setText(String.valueOf(user.getScore()));
             }
         }
 
