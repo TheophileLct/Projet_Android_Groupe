@@ -7,13 +7,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import com.example.quizz_app.R;
+import com.example.quizz_app.appDatabse.AppDatabase;
+import com.example.quizz_app.entities.User;
 
 public class ResultsActivity extends AppCompatActivity implements View.OnClickListener{
 
     private String username;
     private String quizname;
+    private int difficulte;
+    private int nbgoodanswer;
+    private AppDatabase database;
+    private User user;
 
 
     @Override
@@ -28,28 +35,38 @@ public class ResultsActivity extends AppCompatActivity implements View.OnClickLi
         TextView phraseresultfield = findViewById(R.id.result_result);
         TextView quiznamefield = findViewById(R.id.result_quizname);
         ImageView image = findViewById(R.id.result_image);
-
+        database = Room.databaseBuilder(this, AppDatabase.class, "app_user")
+                .allowMainThreadQueries()
+                .build();
         final Intent intent = getIntent();
         if (null != intent) {
             final Bundle extras = intent.getExtras();
             if (null != extras) {
                 this.username = extras.getString("username");
                 userfield.setText(this.username);
+                this.user = database.userDao().getUserByUsername(username).get(0);
                 this.quizname = extras.getString("quizname");
                 quiznamefield.setText(this.quizname);
                 final boolean result = extras.getBoolean("result");
+                this.difficulte=extras.getInt("difficulte");
+                this.nbgoodanswer=extras.getInt("count");
                 if(result==true){
                     resultfield.setText("Félicitations ");
                     phraseresultfield.setText("Tu as atteint le bout du quiz : ");
-                    scorefield.setText("20");
+                    double score=Math.ceil((this.difficulte/2)*this.nbgoodanswer);
+                    scorefield.setText(String.valueOf((int)score));
                     image.setImageDrawable(image.getContext().getResources().getDrawable(R.drawable.felicitation));
+                    this.user.setScore(user.getScore()+(int)score);
                 }
                 else{
                     resultfield.setText("Dommage... ");
                     phraseresultfield.setText("Tu n'as pas réussi à finir le quiz : ");
-                    scorefield.setText("0");
+                    double score=Math.ceil((this.difficulte/4)*this.nbgoodanswer);
+                    scorefield.setText(String.valueOf((int)score));
                     image.setImageDrawable(image.getContext().getResources().getDrawable(R.drawable.perdu));
+                    this.user.setScore(user.getScore()+(int)score);
                 }
+                database.userDao().updateUsers(this.user);
             }
         }
     }

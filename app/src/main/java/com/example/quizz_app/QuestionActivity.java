@@ -22,6 +22,8 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
 
     private String quizname;
     private String username;
+    private int difficulte;
+    private int count;
     private TextView SubjectText;
     private TextView QuestionWidget;
     private List<Button> AnswerButtons = new ArrayList<>();
@@ -35,6 +37,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
+        this.count=0;
         final Intent intent = getIntent();
         if(null!= intent){
             final Bundle extras = intent.getExtras();
@@ -47,6 +50,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
                     Log.e(QuestionActivity.class.getName(), "No theme name was given in the bundle when QuestionActivity is created");
                 QuestionsService.resetQuiz();
                 QuestionsService.chooseQuestionList(quizname);
+                this.difficulte=QuestionsService.getListDifficulty(quizname);
 
             }
         }
@@ -88,6 +92,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
         Question q = QuestionsService.getCurrentQuestion();
         if(q.isGoodAnswer(AnswerButtons.get(index).getText().toString()))
         {
+            this.count++;
             //Increase score
             if (QuestionsService.isAnotherQuestion()){
                 QuestionsService.nextQuestion();
@@ -100,6 +105,8 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
                 bundle.putString("username",this.username);
                 bundle.putBoolean("result",true);
                 bundle.putString("quizname",this.quizname);
+                bundle.putInt("difficulte",this.difficulte);
+                bundle.putInt("count",this.count);
                 intent.putExtras(bundle);
                 startActivity(intent);
                 QuestionsService.resetQuiz();
@@ -113,6 +120,8 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
             bundle.putString("username",this.username);
             bundle.putBoolean("result",false);
             bundle.putString("quizname",this.quizname);
+            bundle.putInt("difficulte",this.difficulte);
+            bundle.putInt("count",this.count);
             intent.putExtras(bundle);
             startActivity(intent);
             QuestionsService.resetQuiz();
