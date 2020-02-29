@@ -22,6 +22,9 @@ public interface UserDao {
     @Update
     public void updateUsers(User... users);
 
+    @Query("Update  AppUser set score=:score where username=:username")
+    void update(int score,String username);
+
     @Delete
     public void deleteUsers(User... users);
 

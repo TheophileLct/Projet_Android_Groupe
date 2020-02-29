@@ -56,7 +56,10 @@ public class ResultsActivity extends AppCompatActivity implements View.OnClickLi
                     double score=Math.ceil((this.difficulte/2)*this.nbgoodanswer);
                     scorefield.setText(String.valueOf((int)score));
                     image.setImageDrawable(image.getContext().getResources().getDrawable(R.drawable.felicitation));
+
+                    //partie BDD
                     this.user.setScore(user.getScore()+(int)score);
+                    database.userDao().update(this.user.getScore(),this.username);
                 }
                 else{
                     resultfield.setText("Dommage... ");
@@ -64,7 +67,11 @@ public class ResultsActivity extends AppCompatActivity implements View.OnClickLi
                     double score=Math.ceil((this.difficulte/4)*this.nbgoodanswer);
                     scorefield.setText(String.valueOf((int)score));
                     image.setImageDrawable(image.getContext().getResources().getDrawable(R.drawable.perdu));
-                    this.user.setScore(user.getScore()+(int)score);
+
+                    //partie BDD
+                    int scorebdd=this.user.getScore()+(int)score;
+                    database.userDao().update(scorebdd,this.username);
+
                 }
                 database.userDao().updateUsers(this.user);
             }
