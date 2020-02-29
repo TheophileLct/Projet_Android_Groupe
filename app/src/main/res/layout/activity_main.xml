@@ -85,7 +85,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
-        android:id="@+id/logo"
+        android:id="@+id/logoquiz"
         android:layout_width="365dp"
         android:layout_height="376dp"
         android:layout_alignParentStart="true"

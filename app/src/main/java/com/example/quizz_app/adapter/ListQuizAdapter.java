@@ -17,6 +17,7 @@ import com.example.quizz_app.MenuPrincipal;
 import com.example.quizz_app.QuestionActivity;
 import com.example.quizz_app.R;
 import com.example.quizz_app.object.Quiz;
+import com.example.quizz_app.utils.ImageService;
 import com.example.quizz_app.utils.QuestionCreate;
 import com.example.quizz_app.utils.QuestionsService;
 
@@ -95,8 +96,7 @@ public class ListQuizAdapter extends RecyclerView.Adapter<ListQuizAdapter.MyView
             name.setText(f_name);
             nbquestion.setText(Integer.toString(QuestionsService.getNumberOfQuestionsInList(f_name)));
             difficulte.setText(Integer.toString(QuestionsService.getListDifficulty(f_name)));
-            Drawable place = symbole.getContext().getResources().getDrawable(R.drawable.quiz);
-            symbole.setImageDrawable(place);
+            ImageService.afficher_image(f_name,symbole);
         }
         /*
         public void display(Quiz quiz) {

@@ -10,9 +10,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.quizz_app.object.Question;
+import com.example.quizz_app.utils.ImageService;
 import com.example.quizz_app.utils.QuestionsService;
 
 import java.util.ArrayList;
@@ -23,6 +25,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
     private String quizname;
     private String username;
     private int difficulte;
+    private ImageView logo;
     private int count;
     private TextView SubjectText;
     private TextView QuestionWidget;
@@ -37,6 +40,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
+        logo=findViewById(R.id.logoquiz);
         this.count=0;
         final Intent intent = getIntent();
         if(null!= intent){
@@ -46,6 +50,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
                 this.quizname = extras.getString("Quizname");
                 this.username = extras.getString("username");
                 getSupportActionBar().setSubtitle(this.quizname);
+                ImageService.afficher_image(quizname,logo);
                 if(quizname == null)
                     Log.e(QuestionActivity.class.getName(), "No theme name was given in the bundle when QuestionActivity is created");
                 QuestionsService.resetQuiz();
