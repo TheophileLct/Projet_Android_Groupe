@@ -86,17 +86,17 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="match_parent"
-        android:layout_height="336dp"
+        android:layout_width="365dp"
+        android:layout_height="376dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="346dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="335dp"
+        android:layout_marginEnd="21dp"
         android:layout_marginBottom="20dp"
         android:contentDescription="@string/logo"
-        app:srcCompat="@drawable/quitimepng" />
+        app:srcCompat="@drawable/quitime_login" />
 
 </RelativeLayout>

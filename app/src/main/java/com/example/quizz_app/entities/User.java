@@ -16,7 +16,7 @@ public class User {
         this.password = password;
         this.score = 0;
         this.nbquiz =0;
-        this.profilpictureURL = profilpictureURL;
+        //this.profilpictureURL = profilpictureURL;
     }
 
     @PrimaryKey(autoGenerate = true)
@@ -34,12 +34,12 @@ public class User {
     @ColumnInfo(name="nbquizz")
     private int nbquiz;
 
-    @ColumnInfo
-    private String profilpictureURL;
+    //@ColumnInfo
+    //private String profilpictureURL;
 
-    public String getProfilpictureURL() { return profilpictureURL; }
+    //public String getProfilpictureURL() { return profilpictureURL; }
 
-    public void setProfilpictureURL(String profilpicture) { this.profilpictureURL = profilpictureURL; }
+    //public void setProfilpictureURL(String profilpicture) { this.profilpictureURL = profilpictureURL; }
 
     public int getNbquiz() {
         return nbquiz;
