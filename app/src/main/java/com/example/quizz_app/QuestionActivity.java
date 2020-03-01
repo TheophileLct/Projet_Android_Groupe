@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.quizz_app.object.Question;
@@ -34,7 +35,9 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
     private Button AnswerCButton;
     private Button AnswerDButton;
 
+    private ProgressBar TimerProgressBar;
     private CountDownTimer timer;
+    private long mTimeLeftInMillis;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +53,12 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
                 this.quizname = extras.getString("Quizname");
                 this.username = extras.getString("username");
                 getSupportActionBar().setSubtitle(this.quizname);
-                ImageService.afficher_image(quizname,logo);
+                String pictureName = QuestionsService.getListPictureName(this.quizname);
+                Log.d(QuestionActivity.class.getName(), pictureName);
+                int pictureID = this.getResources().getIdentifier(pictureName, "drawable", this.getPackageName());
+                if(pictureID == 0)
+                    pictureID = R.drawable.catlogopng;
+                logo.setImageResource(pictureID);
                 if(quizname == null)
                     Log.e(QuestionActivity.class.getName(), "No theme name was given in the bundle when QuestionActivity is created");
                 QuestionsService.resetQuiz();
@@ -79,6 +87,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
         AnswerButtons.add((Button) findViewById(R.id.answer_b_button));
         AnswerButtons.add((Button) findViewById(R.id.answer_c_button));
         AnswerButtons.add((Button) findViewById(R.id.answer_d_button));
+        TimerProgressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         for(int i = 0; i < AnswerButtons.size(); i++)
             AnswerButtons.get(i).setOnClickListener(this);
@@ -91,6 +100,27 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
         QuestionWidget.setText(q.getTitle());
         for(int i = 0; i < AnswerButtons.size(); i++)
             AnswerButtons.get(i).setText(q.getAnswers().get(i));
+        TimerProgressBar.setMax(1000*(int)QuestionsService.getCurrentQuestion().getTimer());
+        mTimeLeftInMillis = 1000*(int)QuestionsService.getCurrentQuestion().getTimer();
+        if(timer != null)
+            timer.cancel();
+        timer = new CountDownTimer(mTimeLeftInMillis, 50 ) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                mTimeLeftInMillis = millisUntilFinished;
+                TimerProgressBar.setProgress((int)mTimeLeftInMillis);
+            }
+
+            @Override
+            public void onFinish() {
+                finnishQuiz(false);
+                /*
+                mTimerRunning = false;
+                mButtonStartPause.setText("Start");
+                mButtonStartPause.setVisibility(View.INVISIBLE);
+                mButtonReset.setVisibility(View.VISIBLE);*/
+            }
+        }.start();
     }
     private void onAnswerGiven(int index)
     {
@@ -105,32 +135,29 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
             }
             else {
                 //END OF QUIZ WITH WIN SCREEN!!!!
-                Intent intent= new Intent ( QuestionActivity.this, ResultsActivity.class);
-                Bundle bundle=new Bundle();
-                bundle.putString("username",this.username);
-                bundle.putBoolean("result",true);
-                bundle.putString("quizname",this.quizname);
-                bundle.putInt("difficulte",this.difficulte);
-                bundle.putInt("count",this.count);
-                intent.putExtras(bundle);
-                startActivity(intent);
-                QuestionsService.resetQuiz();
+                finnishQuiz(true);
             }
         }
         else
         {
             //Bad answer!!! Shame delivery and END OF SCREEN WITH LOOSE SCREEN!!!!
-            Intent intent= new Intent ( QuestionActivity.this,ResultsActivity.class);
-            Bundle bundle=new Bundle();
-            bundle.putString("username",this.username);
-            bundle.putBoolean("result",false);
-            bundle.putString("quizname",this.quizname);
-            bundle.putInt("difficulte",this.difficulte);
-            bundle.putInt("count",this.count);
-            intent.putExtras(bundle);
-            startActivity(intent);
-            QuestionsService.resetQuiz();
+            finnishQuiz(false);
         }
+    }
+    private void finnishQuiz(boolean isWinning)
+    {
+        if(timer != null)
+            timer.cancel();
+        Intent intent= new Intent ( QuestionActivity.this, ResultsActivity.class);
+        Bundle bundle=new Bundle();
+        bundle.putString("username",this.username);
+        bundle.putBoolean("result",isWinning);
+        bundle.putString("quizname",this.quizname);
+        bundle.putInt("difficulte",this.difficulte);
+        bundle.putInt("count",this.count);
+        intent.putExtras(bundle);
+        startActivity(intent);
+        QuestionsService.resetQuiz();
     }
     @Override
     public void onClick(View v) {

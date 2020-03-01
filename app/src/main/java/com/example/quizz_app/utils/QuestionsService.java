@@ -66,6 +66,9 @@ public class QuestionsService {
     public static int getNumberOfQuestionsInList(String nameOfList) {
         return AllQuestionsList.get(getIndexOfQuestionList(nameOfList)).getNumberOfQuestions();
     }
+    public static String getListPictureName(String nameOfList) {
+        return AllQuestionsList.get(getIndexOfQuestionList(nameOfList)).getPictureName();
+    }
     public static int getListDifficulty(String nameOfList) {
         return AllQuestionsList.get(getIndexOfQuestionList(nameOfList)).getDifficulty();
     }
@@ -159,6 +162,7 @@ public class QuestionsService {
     {
         try {
             String name = JSONListQuestions.getString("name");
+            String pictureName = JSONListQuestions.getString("picture");
             int difficulty = JSONListQuestions.getInt("difficulty");
 
             List<Question> questions = new ArrayList<>();
@@ -169,7 +173,7 @@ public class QuestionsService {
                 questions.add(parseQuestion(JSONquestion));
             }
 
-            Quiz listQuestions = new Quiz(name, difficulty, questions);
+            Quiz listQuestions = new Quiz(name, pictureName, difficulty, questions);
             return listQuestions;
 
         } catch(Exception e){

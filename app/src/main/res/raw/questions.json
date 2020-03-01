@@ -1,6 +1,7 @@
 {
   "themes": [{
     "name": "Video game's costume",
+    "picture": "mario",
     "difficulty": 6,
     "questions": [{
       "number": 0,
@@ -35,10 +36,11 @@
         "description": "I dont know",
         "isTrue": false
       }],
-      "timer": 12.0
+      "timer": 10.0
     }]
   },{
     "name": "Kaamelott",
+    "picture": "kamelott",
     "difficulty": 16,
     "questions": [{
       "number": 0,
@@ -213,6 +215,7 @@
     }]
   },{
     "name": "Harry Potter",
+    "picture": "harrypotter",
     "difficulty": 15,
     "questions": [{
       "number": 0,
@@ -388,6 +391,7 @@
     }]
   },{
     "name": "Marvel",
+    "picture": "avengers",
     "difficulty": 18,
     "questions": [{
       "number": 0,
@@ -563,6 +567,7 @@
   },
     {
       "name": "Retour Vers Le Futur",
+      "picture": "backto",
       "difficulty": 15,
       "questions": [{
         "number": 0,

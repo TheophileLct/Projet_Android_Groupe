@@ -2,6 +2,7 @@ package com.example.quizz_app.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -94,9 +95,14 @@ public class ListQuizAdapter extends RecyclerView.Adapter<ListQuizAdapter.MyView
 
         public void display(String f_name) {
             name.setText(f_name);
+            String pictureName = QuestionsService.getListPictureName(f_name);
+            int pictureID = context.getResources().getIdentifier(pictureName, "drawable", context.getPackageName());
+            if(pictureID == 0)
+                pictureID = R.drawable.catlogopng;
+            symbole.setImageResource(pictureID);
             nbquestion.setText(Integer.toString(QuestionsService.getNumberOfQuestionsInList(f_name)));
             difficulte.setText(Integer.toString(QuestionsService.getListDifficulty(f_name)));
-            ImageService.afficher_image(f_name,symbole);
+            //ImageService.afficher_image(f_name,symbole);
         }
         /*
         public void display(Quiz quiz) {
