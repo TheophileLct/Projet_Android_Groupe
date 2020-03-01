@@ -26,6 +26,10 @@ public class ResultsActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        database = Room.databaseBuilder(this, AppDatabase.class, "app_user")
+                .allowMainThreadQueries()
+                .build();
+
         setContentView(R.layout.result);
         findViewById(R.id.result_quitter_button).setOnClickListener(this);
         findViewById(R.id.result_rejouer_button).setOnClickListener(this);
@@ -35,9 +39,7 @@ public class ResultsActivity extends AppCompatActivity implements View.OnClickLi
         TextView phraseresultfield = findViewById(R.id.result_result);
         TextView quiznamefield = findViewById(R.id.result_quizname);
         ImageView image = findViewById(R.id.result_image);
-        database = Room.databaseBuilder(this, AppDatabase.class, "app_user")
-                .allowMainThreadQueries()
-                .build();
+
         final Intent intent = getIntent();
         if (null != intent) {
             final Bundle extras = intent.getExtras();
@@ -58,8 +60,10 @@ public class ResultsActivity extends AppCompatActivity implements View.OnClickLi
                     image.setImageDrawable(image.getContext().getResources().getDrawable(R.drawable.felicitation));
 
                     //partie BDD
-                    this.user.setScore(user.getScore()+(int)score);
-                    database.userDao().update(this.user.getScore(),this.username);
+                    int scorebdd=this.user.getScore()+(int)score;
+                    this.user.setScore(scorebdd);
+                    this.user.setNbquiz(this.user.getNbquiz()+1);
+                    database.userDao().updateUsers(this.user);
                 }
                 else{
                     resultfield.setText("Dommage... ");
@@ -70,10 +74,10 @@ public class ResultsActivity extends AppCompatActivity implements View.OnClickLi
 
                     //partie BDD
                     int scorebdd=this.user.getScore()+(int)score;
-                    database.userDao().update(scorebdd,this.username);
-
+                    this.user.setScore(scorebdd);
+                    this.user.setNbquiz(this.user.getNbquiz()+1);
+                    database.userDao().updateUsers(this.user);
                 }
-                database.userDao().updateUsers(this.user);
             }
         }
     }

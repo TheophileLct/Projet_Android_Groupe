@@ -22,8 +22,8 @@ public interface UserDao {
     @Update
     public void updateUsers(User... users);
 
-    @Query("Update  AppUser set score=:score where username=:username")
-    void update(int score,String username);
+    @Query("UPDATE  AppUser SET score=(:score) WHERE id=(:id)")
+    void update(int score,int id);
 
     @Delete
     public void deleteUsers(User... users);
@@ -33,7 +33,7 @@ public interface UserDao {
 
 
     @Query("SELECT * FROM AppUser WHERE id=(:id)")
-    List<User> getUserById(String id);
+    User getUserById(int id);
 
     // @Query("INSERT INTO person(id,Username,Password,Score,nbquiz) VALUES(:id,:Username,:Password,:Score,:nbquiz) ")
     // fun User (:id,:Username,:Password,:Score,:nbquiz)

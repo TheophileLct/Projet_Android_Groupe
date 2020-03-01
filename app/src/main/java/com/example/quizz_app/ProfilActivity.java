@@ -28,6 +28,7 @@ public class ProfilActivity extends AppCompatActivity {
                 .build();
         TextView namefield = findViewById(R.id.profil_name);
         TextView scorefield = findViewById(R.id.profil_score);
+        TextView nbQuizzField=findViewById(R.id.profil_nbQuizz);
         final Intent intent = getIntent();
         if(null!= intent){
             final Bundle extras = intent.getExtras();
@@ -38,6 +39,7 @@ public class ProfilActivity extends AppCompatActivity {
                 namefield.setText(name);
                 User user = database.userDao().getUserByUsername(username).get(0);
                 scorefield.setText(String.valueOf(user.getScore()));
+                nbQuizzField.setText(String.valueOf(user.getNbquiz()));
             }
         }
 

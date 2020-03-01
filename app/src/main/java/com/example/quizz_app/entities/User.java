@@ -17,6 +17,7 @@ public class User {
         this.score = 0;
         this.nbquiz =0;
         //this.profilpictureURL = profilpictureURL;
+        this.nbquiz = 0;
     }
 
     @PrimaryKey(autoGenerate = true)
@@ -54,7 +55,7 @@ public class User {
     }
 
     public void setScore( int score) {
-        score = score;
+        this.score = score;
     }
 
     public String getPassword() {
@@ -62,7 +63,7 @@ public class User {
     }
 
     public void setPassword( String password) {
-        password = password;
+        this.password = password;
     }
 
     public String getUsername() {
@@ -70,7 +71,7 @@ public class User {
     }
 
     public void setUsername( String username) {
-        username = username;
+        this.username = username;
     }
 
     public int getId() {
@@ -78,7 +79,7 @@ public class User {
     }
 
     public void setId( int id) {
-        id = id;
+        this.id = id;
     }
 
 
