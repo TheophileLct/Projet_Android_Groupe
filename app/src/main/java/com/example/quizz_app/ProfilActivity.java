@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import com.example.quizz_app.Dao.UserDao;
 import com.example.quizz_app.appDatabse.AppDatabase;
 import com.example.quizz_app.entities.User;
 import com.example.quizz_app.utils.Constants;
+import com.example.quizz_app.utils.ImageService;
 
 public class ProfilActivity extends AppCompatActivity {
 
@@ -29,6 +31,8 @@ public class ProfilActivity extends AppCompatActivity {
         TextView namefield = findViewById(R.id.profil_name);
         TextView scorefield = findViewById(R.id.profil_score);
         TextView nbQuizzField=findViewById(R.id.profil_nbQuizz);
+        TextView rang = findViewById(R.id.Rang);
+        ImageView avatar = findViewById(R.id.avatar);
         final Intent intent = getIntent();
         if(null!= intent){
             final Bundle extras = intent.getExtras();
@@ -40,6 +44,7 @@ public class ProfilActivity extends AppCompatActivity {
                 User user = database.userDao().getUserByUsername(username).get(0);
                 scorefield.setText(String.valueOf(user.getScore()));
                 nbQuizzField.setText(String.valueOf(user.getNbquiz()));
+                ImageService.afficher_rang(user.getScore(),user.getNbquiz(),avatar,rang);
             }
         }
 

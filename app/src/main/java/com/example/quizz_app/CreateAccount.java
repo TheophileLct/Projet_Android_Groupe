@@ -35,47 +35,50 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
         passwordEdit = (EditText) findViewById(R.id.passwordSet);
 
         findViewById(R.id.ButtonContinue).setOnClickListener(this);
+        findViewById(R.id.return_button).setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View v) {
-
-        if (TextUtils.isEmpty(passwordEdit.getText()) && (TextUtils.isEmpty(loginEdit.getText())))
-        {
-            Toast.makeText(this, "EmptyLogin and EmptyPassword", Toast.LENGTH_SHORT)
-                    .show();
-            return;
+        if(v==findViewById(R.id.return_button)){
+            final Intent homeIntent = new Intent(this, LoginActivity.class);
+            startActivity(homeIntent);
         }
-        else {
-
-            if (TextUtils.isEmpty(loginEdit.getText())) {
-                Toast.makeText(this, "EmptyLogin", Toast.LENGTH_SHORT)
+        else if (v==findViewById(R.id.ButtonContinue)) {
+            if (TextUtils.isEmpty(passwordEdit.getText()) && (TextUtils.isEmpty(loginEdit.getText()))) {
+                Toast.makeText(this, "EmptyLogin and EmptyPassword", Toast.LENGTH_SHORT)
                         .show();
                 return;
-            }
+            } else {
 
-            if (TextUtils.isEmpty(passwordEdit.getText())) {
-                Toast.makeText(this, "EmptyPassword", Toast.LENGTH_SHORT)
+                if (TextUtils.isEmpty(loginEdit.getText())) {
+                    Toast.makeText(this, "EmptyLogin", Toast.LENGTH_SHORT)
+                            .show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(passwordEdit.getText())) {
+                    Toast.makeText(this, "EmptyPassword", Toast.LENGTH_SHORT)
+                            .show();
+                    return;
+                }
+
+            }
+            String login = loginEdit.getText().toString();
+            String password = passwordEdit.getText().toString();
+
+
+            if (database.userDao().getUserByUsername(login).size() != 0) {
+                Toast.makeText(this, "Username already use", Toast.LENGTH_SHORT)
                         .show();
                 return;
+            } else {
+                User newUser = new User(login, password);
+
+                database.userDao().insertAll(newUser);
+                startActivity(new Intent(CreateAccount.this, LoginActivity.class));
             }
-
-        }
-        String login = loginEdit.getText().toString();
-        String password=passwordEdit.getText().toString();
-
-
-        if(database.userDao().getUserByUsername(login).size()!=0){
-            Toast.makeText(this, "Username already use", Toast.LENGTH_SHORT)
-                    .show();
-            return;
-        }
-        else {
-            User newUser = new User(login,password);
-
-            database.userDao().insertAll(newUser);
-            startActivity(new Intent( CreateAccount.this, LoginActivity.class));
         }
     }
 

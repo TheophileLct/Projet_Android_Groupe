@@ -9,43 +9,30 @@
 
     <ImageView
         android:id="@+id/profile_image"
-        android:layout_width="112dp"
-        android:layout_height="104dp"
+        android:layout_width="208dp"
+        android:layout_height="211dp"
         android:layout_marginTop="50dp"
         android:contentDescription="@string/logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.052"
-        app:srcCompat="@drawable/catlogopng" />
-
-    <Button
-        android:id="@+id/chooseProfilImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="@string/picture"
-        android:elevation="10dp"
-        android:translationZ="10dp"
-        android:stateListAnimator="@null"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image" />
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/bienvenue" />
 
     <EditText
         android:id="@+id/profilName"
         android:layout_width="383dp"
         android:layout_height="45dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/profilText"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chooseProfilImage" />
+        app:layout_constraintTop_toBottomOf="@+id/profile_image" />
 
     <EditText
         android:id="@+id/passwordSet"
@@ -72,4 +59,14 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordSet" />
+
+    <Button
+        android:id="@+id/return_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="36dp"
+        android:text="Retour"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
