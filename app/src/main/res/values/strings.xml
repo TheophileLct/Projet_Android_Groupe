@@ -7,17 +7,17 @@
     <string name="password">Password</string>
     <string name="connect">Connect !</string>
     <string name="signup">Sign up !</string>
-    <string name="stay_connected">stay connected</string>
+    <string name="stay_connected">resté connecté</string>
     <string name="logo">logo</string>
 
     <!-- CREATE PROFILE -->
     <string name="picture">Choose your profile image</string>
-    <string name="Continue">Continue !</string>
+    <string name="Continue">Continuer !</string>
 
 
     <!-- PROFIL PAGE -->
     <string name="editImageButton">Edit your image</string>
-    <string name="profilText">Profil name : </string>
+    <string name="profilText">Nom de Profil : </string>
     <string name="scoreText">Score : </string>
     <string name="logout">Logout</string>
 
@@ -28,10 +28,10 @@
     <string name="passwordPref">SharedPreferences</string>
 
     <!-- Menu Déroulant   -->
-    <string name="menu_logout_button">log out</string>
+    <string name="menu_logout_button">déconnexion</string>
     <string name="menu_profil_button">profil</string>
     <string name="menu_return_button">home</string>
-    <string name="number_of_quizz">number of quizz</string>
+    <string name="number_of_quizz">nombre de quiz réussi</string>
 
 
 </resources>
