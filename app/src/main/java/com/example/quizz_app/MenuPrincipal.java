@@ -65,8 +65,8 @@ public class MenuPrincipal extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.menu_deroulant_return_home){
-            finish();
-            return true;
+            final Intent homeIntent = new Intent(this, LoginActivity.class);
+            startActivity(homeIntent);
         }
 
         if (id== R.id.menu_deroulant_profil){

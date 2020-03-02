@@ -75,7 +75,7 @@ public class ResultsActivity extends AppCompatActivity implements View.OnClickLi
                     //partie BDD
                     int scorebdd=this.user.getScore()+(int)score;
                     this.user.setScore(scorebdd);
-                    this.user.setNbquiz(this.user.getNbquiz()+1);
+                    //this.user.setNbquiz(this.user.getNbquiz()+1);
                     database.userDao().updateUsers(this.user);
                 }
             }
