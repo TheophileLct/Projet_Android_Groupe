@@ -1,39 +1,175 @@
 {
   "themes": [{
-    "name": "Video game's costume",
+    "name": "Costume dans le jeu vidéo",
     "picture": "mario",
-    "difficulty": 6,
+    "difficulty": 14,
     "questions": [{
       "number": 0,
-      "title": "What's the colour of Mario's hat in Super Mario Bros 2?",
+      "title": "Quelle est la couleur de la casquette de marion dans Super Mario bros 2 ?",
       "answers": [{
-        "description": "Blue",
+        "description": "Bleu",
         "isTrue": false
       }, {
-        "description": "White",
+        "description": "Blanc",
         "isTrue": false
       }, {
-        "description": "Red",
+        "description": "Rouge",
         "isTrue": true
       }, {
-        "description": "Black",
+        "description": "Noire",
         "isTrue": false
       }],
       "timer": 10.0
     }, {
       "number": 1,
-      "title": "Has Donkey Kong a tie in the first game he appears?",
+      "title": "Lors de sa première apparition, Donkey Kong avait-il une cravate ?",
       "answers": [{
-        "description": "Yes",
+        "description": "Oui",
         "isTrue": false
       }, {
-        "description": "No",
+        "description": "Non",
         "isTrue": true
       }, {
-        "description": "Maybe",
+        "description": "Peut-être",
         "isTrue": false
       }, {
-        "description": "I dont know",
+        "description": "Je ne sais pas",
+        "isTrue": false
+      }],
+      "timer": 10.0
+    }, {
+        "number": 2,
+        "title": "Dans la saga super smash, quel perso est jouable avec ou sans armure ?",
+        "answers": [{
+          "description": "Samus",
+          "isTrue": true
+        }, {
+          "description": "Link",
+          "isTrue": false
+        }, {
+          "description": "Ganondorf",
+          "isTrue": false
+        }, {
+          "description": "Chrom",
+          "isTrue": false
+        }],
+        "timer": 10.0
+      },{
+      "number": 3,
+      "title": "Dans quel jeu the legend of zelda peut modifier la race de Link ?",
+      "answers": [{
+        "description": "Ocarina of Time",
+        "isTrue": false
+      }, {
+        "description": "Phantom Hourglass",
+        "isTrue": false
+      }, {
+        "description": "Skyward Sword",
+        "isTrue": false
+      }, {
+        "description": "Majora's Mask",
+        "isTrue": true
+      }],
+      "timer": 10.0
+    },{
+      "number": 4,
+      "title": "Dans la saga Kingdom Hearts, qui fournis les costumes aux héros ?",
+      "answers": [{
+        "description": "Merlin l'Enchanteur",
+        "isTrue": false
+      }, {
+        "description": "Les trois bonne fées",
+        "isTrue": true
+      }, {
+        "description": "Aerith Gainsborough",
+        "isTrue": false
+      }, {
+        "description": "Maléfique",
+        "isTrue": false
+      }],
+      "timer": 10.0
+    },{
+      "number": 5,
+      "title": "Quel personnage emblématique est reconnaissable par son haut de forme et son goût pour les énigmes?",
+      "answers": [{
+        "description": "Docteur Lautrec",
+        "isTrue": false
+      }, {
+        "description": "Professeur Layton",
+        "isTrue": true
+      }, {
+        "description": "Mario",
+        "isTrue": false
+      }, {
+        "description": "Détective Pikachu",
+        "isTrue": false
+      }],
+      "timer": 10.0
+    },{
+      "number": 6,
+      "title": "Quel personnage emblématique est reconnaissable par son costume bleu et ses cheveux en épis ?",
+      "answers": [{
+        "description": "Sonic",
+        "isTrue": false
+      }, {
+        "description": "Sly Cooper",
+        "isTrue": false
+      }, {
+        "description": "Phoenix Wright",
+        "isTrue": true
+      }, {
+        "description": "Luke Triton",
+        "isTrue": false
+      }],
+      "timer": 10.0
+    },{
+      "number": 7,
+      "title": "Dans quel Final Fantasy le gameplay passe-t-il par un changement de costume ?",
+      "answers": [{
+        "description": "Final Fantasy X-2",
+        "isTrue": true
+      }, {
+        "description": "Final Fantasy XV",
+        "isTrue": false
+      }, {
+        "description": "Final Fantasy XIII-2",
+        "isTrue": false
+      }, {
+        "description": "Final Fantasy IV",
+        "isTrue": false
+      }],
+      "timer": 10.0
+    },{
+      "number": 8,
+      "title": "Dans quel jeu fantasy développé par Level-5 peut on incarner plusieur métier, changeant ainsi de tenue ?",
+      "answers": [{
+        "description": "Professeur Layton",
+        "isTrue": false
+      }, {
+        "description": "Animal Crossing",
+        "isTrue": false
+      }, {
+        "description": "Yo-Kai Watch",
+        "isTrue": false
+      }, {
+        "description": "Fantasy Life",
+        "isTrue": true
+      }],
+      "timer": 10.0
+    },{
+      "number": 9,
+      "title": "Dans quel saga de jeu les personnages principaux sont t-ils reconnaissable par leur costume à capuche ?",
+      "answers": [{
+        "description": "Sly Cooper",
+        "isTrue": false
+      }, {
+        "description": "Les Chevalier de Baphomet",
+        "isTrue": false
+      }, {
+        "description": "Assassin's Creed",
+        "isTrue": true
+      }, {
+        "description": "Dishonored",
         "isTrue": false
       }],
       "timer": 10.0
@@ -356,7 +492,7 @@
       "timer": 12.0
     },{
       "number": 8,
-      "title": "Laquelle de ces boutiques ne se trouve as sur le chemin de traverse ?",
+      "title": "Laquelle de ces boutiques ne se trouve pas sur le chemin de traverse ?",
       "answers": [{
         "description": "Florian Fortarôme",
         "isTrue": false
@@ -649,8 +785,7 @@
         }, {
           "description": "Jules et Verne",
           "isTrue": true
-        },
-          {
+        },{
             "description": "Isaac et Nicolas",
             "isTrue": false
           }],
@@ -686,6 +821,74 @@
           "isTrue": false
         }, {
           "description": "moi je compte en kilomètre par heure",
+          "isTrue": false
+        }],
+        "timer": 10.0
+      },{
+        "number": 6,
+        "title": "Quelle est la marque de la fameuse voiture à voyager dans le temps ?",
+        "answers": [{
+          "description": "Delorean DMC-12",
+          "isTrue": true
+        }, {
+          "description": "Delorean DMC-5",
+          "isTrue": false
+        }, {
+          "description": "Delorean DMC-3",
+          "isTrue": false
+        }, {
+          "description": "Delorean DMC-8",
+          "isTrue": false
+        }],
+        "timer": 10.0
+      },{
+        "number": 7,
+        "title": "Dans le troisème opus de combien est le différent entre Doc et Buford Tannen ?",
+        "answers": [{
+          "description": "50$",
+          "isTrue": false
+        }, {
+          "description": "80$",
+          "isTrue": true
+        }, {
+          "description": "60$",
+          "isTrue": false
+        }, {
+          "description": "70$",
+          "isTrue": false
+        }],
+        "timer": 10.0
+      },{
+        "number": 8,
+        "title": "En 2015, Comment s'appelle la boutique dans laquelle marty achète l'almanach ?",
+        "answers": [{
+          "description": "Blast From The Future",
+          "isTrue": false
+        }, {
+          "description": "The Past For Ever",
+          "isTrue": false
+        }, {
+          "description": "Blast From 1985",
+          "isTrue": false
+        }, {
+          "description": "Blast From The Past",
+          "isTrue": true
+        }],
+        "timer": 10.0
+      },{
+        "number": 9,
+        "title": "En 1885, Quel est la marque du revolver de Marty ?",
+        "answers": [{
+          "description": "Smith et Wesson 32 SW",
+          "isTrue": false
+        }, {
+          "description": "Colt 45",
+          "isTrue": false
+        }, {
+          "description": "Colt pacificateur",
+          "isTrue": true
+        }, {
+          "description": "Smith et Wesson Ravageur",
           "isTrue": false
         }],
         "timer": 10.0
