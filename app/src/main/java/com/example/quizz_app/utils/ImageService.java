@@ -36,7 +36,6 @@ public class ImageService {
             symbole.setImageDrawable(place);
         }
     }
-
     public static void afficher_rang(int score, int nbquiz, ImageView affiche, TextView rang) {
         Drawable place;
         if ((nbquiz>250)&&(score>25000)){
